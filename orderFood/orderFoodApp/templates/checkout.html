@@ -41,14 +41,6 @@
             <p><strong>Total: </strong><i>Rs.{{total}}</i></p>
             <a href="/makePayment" class="btn btn-danger">Proceed to Pay</a>
         </div>
-    
-        <div class="text-right m-3">
-            {% if user.is_authenticated %}
-                <h5>Customer Details</h5>
-                <p><b>Name:</b> &nbsp; {{user.username}}
-                <p><b>Email ID:</b> &nbsp; {{user.email}}
-            {% endif %}
-        </div>
     </div>
     
     
