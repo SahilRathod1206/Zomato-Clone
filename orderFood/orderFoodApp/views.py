@@ -141,7 +141,7 @@ def makePayment(req):
     for x in orders:
         total_price += (x.product.F_price * x.quantity)
         oid = x.order_id
-    client = razorpay.Client(auth=("rzp_test_9r4EOeXGU6g", "1OOx43XwALcea48VsFWTdZ9a"))
+    client = razorpay.Client(auth=("rzp_test_9r4EOeXGU6gUh9", "1OOx43XwALcea48VsFWTdZ9a"))
     data = {
     "amount": total_price*100,
     "currency": "INR",
@@ -154,6 +154,9 @@ def makePayment(req):
     c.delete()
     orders.update(is_completed=True)
     return render(req,"payment.html",context)
+
+def paymentSuccess(req):
+    return render(req,"paymentSuccess.html")
 
 def restDetail(req,rid):
     restaurant = Restaurants.objects.get(R_id = rid)
