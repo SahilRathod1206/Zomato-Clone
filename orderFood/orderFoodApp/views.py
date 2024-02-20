@@ -155,8 +155,11 @@ def makePayment(req):
     orders.update(is_completed=True)
     return render(req,"payment.html",context)
 
-def paymentSuccess(req):
-    return render(req,"paymentSuccess.html")
+def myOrders(req):
+    myorder = Checkout.objects.filter(user = req.user,is_completed=True)
+    context = {}
+    context["myorder"] = myorder
+    return render(req,"myorder.html",context)
 
 def restDetail(req,rid):
     restaurant = Restaurants.objects.get(R_id = rid)
